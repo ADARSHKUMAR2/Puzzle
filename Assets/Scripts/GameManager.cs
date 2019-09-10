@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject centre_model;
     Vector3 pos_object;
     bool on_pos = false;
-    
+
 
     void Start()
     {
@@ -25,30 +25,35 @@ public class GameManager : MonoBehaviour
         transform.position = objPosition;
     }
 
-    
+
     void Update()
     {
-        
+        if (on_pos)
+            transform.localRotation = Quaternion.identity;
     }
 
     public void OnMouseUp()
     {
-        if(on_pos)
+        if (on_pos)
         {
             transform.position = Position_detector.transform.position;
-            transform.rotation = Quaternion.Euler(centre_model.transform.eulerAngles.x, centre_model.transform.eulerAngles.y, centre_model.transform.eulerAngles.z);
+            //transform.rotation = Quaternion.Euler(0f,90f,90f);
+            Debug.Log("Placed at correct pos");
+            transform.rotation = Quaternion.Euler(0f,90f,90f);
             gameObject.GetComponent<Rotate>().enabled = false;
         }
 
         else
         {
             transform.position = pos_object;
+            
+            //gameObject.GetComponent<VbScript>().enabled = false;
         }
     }
 
     public void OnTriggerStay(Collider obj)
     {
-        if(obj.gameObject==Collision_Detector)
+        if (obj.gameObject == Collision_Detector)
         {
             on_pos = true;
         }
@@ -61,5 +66,5 @@ public class GameManager : MonoBehaviour
             on_pos = false;
         }
     }
-    
+
 }
