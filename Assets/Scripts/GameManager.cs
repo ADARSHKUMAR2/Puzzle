@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     bool on_pos = false;
     public Transform Parent_Model;
     public List<Transform> child_pieces;
-    public GameObject Main_GameObject;
+
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 20f);
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         transform.position = objPosition;
-        Main_GameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        
     }
 
 

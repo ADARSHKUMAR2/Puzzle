@@ -799,7 +799,6 @@ MonoBehaviour:
   centre_model: {fileID: 0}
   Parent_Model: {fileID: 0}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!1 &241623907
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +978,6 @@ MonoBehaviour:
   centre_model: {fileID: 0}
   Parent_Model: {fileID: 0}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!1 &350276268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1256,6 @@ MonoBehaviour:
   centre_model: {fileID: 0}
   Parent_Model: {fileID: 0}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!1001 &612738693
 Prefab:
   m_ObjectHideFlags: 0
@@ -1671,6 +1668,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8ac8712ef225d4d8750f50490fd253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnSingleTap:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDoubleTap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 827246033}
+        m_MethodName: OnMouseDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!65 &827246034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2072,7 +2090,6 @@ MonoBehaviour:
   centre_model: {fileID: 827246029}
   Parent_Model: {fileID: 827246032}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!65 &1357728763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2259,7 +2276,6 @@ MonoBehaviour:
   centre_model: {fileID: 0}
   Parent_Model: {fileID: 0}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!1 &1562761317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,7 +2554,6 @@ MonoBehaviour:
   centre_model: {fileID: 0}
   Parent_Model: {fileID: 0}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!1 &1616038071 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 990b5d7296901ed409f8d81335fe3305, type: 3}
@@ -2559,7 +2574,6 @@ MonoBehaviour:
   centre_model: {fileID: 827246029}
   Parent_Model: {fileID: 827246032}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!65 &1616038074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2867,7 +2881,6 @@ MonoBehaviour:
   centre_model: {fileID: 827246029}
   Parent_Model: {fileID: 827246032}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!65 &1944840435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3008,7 +3021,6 @@ MonoBehaviour:
   centre_model: {fileID: 827246029}
   Parent_Model: {fileID: 827246032}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!65 &2039409036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3270,7 +3282,6 @@ MonoBehaviour:
   centre_model: {fileID: 827246029}
   Parent_Model: {fileID: 827246032}
   child_pieces: []
-  Main_GameObject: {fileID: 0}
 --- !u!65 &2108130728
 BoxCollider:
   m_ObjectHideFlags: 0

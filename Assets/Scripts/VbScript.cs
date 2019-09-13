@@ -1,42 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class VbScript : MonoBehaviour
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+public class VbScript : MonoBehaviour , IPointerDownHandler
 {
+    float firstTapTime = 0f;
+    float timeBetweenTaps = 0.2f; 
+    bool doubleTapInitialized;
 
-    /*
-    private Touch touch;
-    private Vector2 touchPosition;
-    private Quaternion rotationZ;
-    private float rotationRate = 1f;
-    
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        if ((Input.GetTouch(0).phase == TouchPhase.Stationary) || (Input.GetTouch(0).phase == TouchPhase.Moved ))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if(hit.transform.gameObject.tag=="Player")
-                {
-                    rotationZ = Quaternion.Euler(-touch.deltaPosition.x * rotationRate, 0f, 0f );
-                    transform.rotation = rotationZ * transform.rotation;
-                    Debug.Log("India Gate");
-                }
-            }
-        }
+    public UnityEvent OnSingleTap;
+    public UnityEvent OnDoubleTap;
 
-    }
-    */
-    private void OnMouseDrag()
+    public void OnMouseDrag()
     {
         float rotationX = Input.GetAxis("Mouse X") * 200f * Mathf.Deg2Rad;
-
         transform.Rotate(Vector3.up, -rotationX);
-       
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!doubleTapInitialized)
+        {
+            // invoke single tap after max time between taps
+            Invoke("SingleTap", timeBetweenTaps);
+            // init double tapping
+            doubleTapInitialized = true;
+            firstTapTime = Time.time;
+        }
+        else if (Time.time - firstTapTime < timeBetweenTaps)
+        {
+            // here we have tapped second time before "single tap" has been invoked
+            CancelInvoke("SingleTap"); // cancel "single tap" invoking
+            DoubleTap();
+        }
+    }
+
+    void SingleTap()
+    {
+        doubleTapInitialized = false; // deinit double tap
+
+        // fire OnSingleTap event for all eventual subscribers
+        if (OnSingleTap != null)
+        {
+            OnSingleTap.Invoke();
+        }
+    }
+
+    void DoubleTap()
+    {
+  
+
+        doubleTapInitialized = false;
+        if (OnDoubleTap != null)
+        {
+            OnDoubleTap.Invoke();
+        }
     }
 }
